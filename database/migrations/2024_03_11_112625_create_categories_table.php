@@ -14,12 +14,8 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->unsignedBigInteger('category_id')->nullable();
             $table->timestamps();
 
-            $table->index('category_id', 'post_category_idx');
-            $table->foreign('category_id', 'post_category_fk')
-            ->on('categories')->references('id');
         });
     }
 

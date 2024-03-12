@@ -27,10 +27,15 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-
-                        <form action="#" class="w-25">
+                        <form action="{{route('admin.category.store')}}" method="post" class="w-25">
+                            @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Enter cat.name">
+                                <input type="text" name="title" class="form-control" placeholder="Enter cat.name">
+                                @error('title')
+                                <div class="text-danger">
+                                    Field must be fullfilled
+                                </div>
+                                @enderror
                             </div>
                             <input type="submit" class="btn btn-primary col-4" value="Add">
                         </form>
