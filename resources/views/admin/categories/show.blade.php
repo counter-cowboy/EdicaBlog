@@ -9,6 +9,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">{{$category->title}}</h1>
+
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -38,12 +39,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-
                                     <tr>
                                         <td>{{ $category->id }}</td>
                                         <td>{{$category->title}}</td>
                                         <td>
-
+                                            <a href="{{ route('admin.category.edit', $category->id) }}"
+                                               class="text-success">
+                                                <i class="fa fa-pencil-alt"></i>
+                                            </a>
                                         </td>
                                     </tr>
 

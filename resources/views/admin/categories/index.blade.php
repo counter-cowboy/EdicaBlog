@@ -70,7 +70,8 @@
                                                     <i class="fa fa-eye"></i></a>
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.category.edit', $cat->id) }}">
+                                                <a href="{{ route('admin.category.edit', $cat->id) }}"
+                                                   class="text-success">
                                                     <i class="fa fa-pencil-alt"></i></a>
                                             </td>
                                         </tr>

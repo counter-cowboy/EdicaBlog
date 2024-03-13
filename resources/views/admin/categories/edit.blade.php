@@ -35,7 +35,7 @@
                                        value="{{$category->title}}" placeholder="Enter cat.name">
                                 @error('title')
                                 <div class="text-danger">
-                                    Field must be fullfilled
+                                    Field must be fulfilled
                                 </div>
                                 @enderror
                             </div>
