@@ -51,7 +51,8 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th colspan="3" class="text-center">Action</th>
+                                        <th>Content</th>
+                                        <th colspan="4" class="text-center">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -59,6 +60,7 @@
                                         <tr>
                                             <td>{{ $post->id }}</td>
                                             <td>{{$post->title}}</td>
+                                            <td>{{$post->content}}</td>
                                             <td class="text-center">
                                                 <a href="{{ route('admin.post.show', $post->id) }}">
                                                     <i class="fa fa-eye"></i></a>

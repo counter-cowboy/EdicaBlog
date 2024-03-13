@@ -12,5 +12,6 @@ class Post extends Model
 //    use SoftDeletes;
 
     protected $table = 'posts';
-    protected $fillable = [];
+//    protected $fillable = [];
+    protected $guarded = false;
 }
