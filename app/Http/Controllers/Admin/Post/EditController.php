@@ -9,7 +9,6 @@ class EditController extends Controller
 {
     public function __invoke(Post $post)
     {
-
         return view('admin.post.edit', compact('post'));
     }
 }

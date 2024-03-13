@@ -14,7 +14,7 @@ class StoreController extends Controller
         $data = $request->validated();
         $data['preview_image'] = Storage::put('/images', $data['preview_image']);
         $data['main_image'] = Storage::put('/images', $data['main_image']);
-
+        dd($data);
 
         Post::firstOrCreate($data);
         return redirect()->route('admin.post.index');

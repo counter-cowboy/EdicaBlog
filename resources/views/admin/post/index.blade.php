@@ -52,6 +52,8 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Content</th>
+                                        <th>Prev</th>
+                                        <th>Image</th>
                                         <th colspan="4" class="text-center">Action</th>
                                     </tr>
                                     </thead>
@@ -60,7 +62,10 @@
                                         <tr>
                                             <td>{{ $post->id }}</td>
                                             <td>{{$post->title}}</td>
-                                            <td>{{$post->content}}</td>
+                                            <td>{!! $post->content !!}</td>
+                                            <td><img src="{{$post->preview_image}}">
+                                            </td>
+                                            <td>{{$post->main_image}}</td>
                                             <td class="text-center">
                                                 <a href="{{ route('admin.post.show', $post->id) }}">
                                                     <i class="fa fa-eye"></i></a>

@@ -25,6 +25,7 @@
                         <form action="{{route('admin.post.store')}}" method="post"
                               enctype="multipart/form-data">
                             @csrf
+                            {{--  Title--}}
                             <div class="form-group w-25">
                                 <input type="text" name="title" class="form-control"
                                        value="{{old('title')}}" placeholder="Enter post name">
@@ -34,6 +35,7 @@
                                 </div>
                                 @enderror
                             </div>
+                            {{--Content--}}
                             <div class="form-group ">
                                 <textarea id="summernote" name="content">
                                     {{ old('content') }}
@@ -44,7 +46,7 @@
                                 </div>
                                 @enderror
                             </div>
-
+                            {{--Preview image--}}
                             <div class="form-group w-50">
                                 <label for="exampleInputFile">Add preview</label>
                                 <div class="input-group">
@@ -58,6 +60,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{--Main image--}}
                             <div class="form-group w-50">
                                 <label for="exampleInputFile">Add image</label>
                                 <div class="input-group">
@@ -71,11 +74,33 @@
                                     </div>
                                 </div>
                             </div>
-
+                            {{-- Select category--}}
+                            <div class="form-group w-25">
+                                <label>Select category</label>
+                                <select name="category_id" class="form-control">
+                                    @foreach($category as $cat)
+                                        <option value="{{$cat->id}}"
+                                                {{$cat->id == old('category_id')? ' selected' : ''}}>
+                                            {{$cat->title}}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            {{-- Select tag multiple--}}
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary col-4" value="Add">
+                                <label>Select tags</label>
+                                <select multiple="" class="form-control">
+                                    @foreach($tags as $tag)
+                                        <option value="{{$tag->id}}">{{$tag->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            {{--  Submit button--}}
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary col-1" value="Add">
                             </div>
                         </form>
+                        {{--End form--}}
                     </div>
                 </div>
             </div>
