@@ -87,9 +87,10 @@
                                 </select>
                             </div>
                             {{-- Select tag multiple--}}
-                            <div class="form-group">
+                            <div class="form-group  w-25">
                                 <label>Select tags</label>
-                                <select multiple="" class="form-control">
+                                <select class="select2 form-control" multiple="multiple" name="tag_ids[]"
+                                        data-placeholder="Select a tag" style="width: 100%;">
                                     @foreach($tags as $tag)
                                         <option value="{{$tag->id}}">{{$tag->title}}</option>
                                     @endforeach
