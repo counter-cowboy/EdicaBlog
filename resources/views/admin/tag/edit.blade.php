@@ -8,18 +8,26 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Editing category</h1>
-                    </div><!-- /.col -->
+                        <h1 class="m-0">Editing tag</h1>
+                        <form action="{{ route('admin.tag.delete', $tag->id) }}"
+                              method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="border-0 bg-transparent">
+                                <i role="button" onclick="return confirm('Sure delete?')"
+                                   class="fa fa-trash text-danger"></i>
+                            </button>
+                        </form>
+                    </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active">Dashboard v1</li>
                         </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
 
         <!-- Main content -->
         <section class="content">
@@ -27,12 +35,12 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{ route('admin.category.update', $category->id) }}" method="post" class="w-25">
+                        <form action="{{ route('admin.tag.update', $tag->id) }}" method="post" class="w-25">
                             @csrf
                             @method('patch')
                             <div class="form-group">
                                 <input type="text" name="title" class="form-control"
-                                       value="{{$category->title}}" placeholder="Enter cat.name">
+                                       value="{{$tag->title}}" placeholder="Enter tag name">
                                 @error('title')
                                 <div class="text-danger">
                                     Field must be fulfilled
@@ -42,13 +50,8 @@
                             <input type="submit" class="btn btn-primary col-4" value="Update">
                         </form>
                     </div>
-
-                    <!-- ./col -->
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 @endsection

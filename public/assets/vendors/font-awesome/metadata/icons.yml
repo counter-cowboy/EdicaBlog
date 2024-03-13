@@ -3120,7 +3120,7 @@ cash-register:
     - solid
   unicode: f788
   voted: true
-cat:
+tag:
   changes:
     - 5.4.0
     - 5.10.1
@@ -6403,8 +6403,8 @@ ethernet:
   search:
     terms:
       - cable
-      - cat 5
-      - cat 6
+      - tag 5
+      - tag 6
       - connection
       - hardware
       - internet
@@ -13702,7 +13702,7 @@ paw:
   search:
     terms:
       - animal
-      - cat
+      - tag
       - dog
       - pet
       - print

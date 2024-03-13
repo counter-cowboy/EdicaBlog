@@ -28,7 +28,7 @@
                 <div class="row">
 
                     <div class="col-1 mb-3">
-                        <a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary">Add cat.</a>
+                        <a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary">Add category</a>
                     </div>
                 </div>
                 <div class="row">
@@ -92,16 +92,12 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- /.card-body -->
                         </div>
                     </div>
 
-                    <!-- ./col -->
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
+    <!
 @endsection

@@ -229,7 +229,7 @@
                 margin-bottom: 37px;
             }
 
-            .blog-post-category {
+            .blog-post-tag {
                 font-size: 16px;
                 line-height: 1.13;
                 color: #7d848b;
@@ -270,7 +270,7 @@
             padding: 45px 60px;
             border-radius: 8px;
 
-            .post-category {
+            .post-tag {
                 font-size: 18px;
                 font-weight: $font-weight-medium;
                 line-height: 0.89;
@@ -307,7 +307,7 @@
             &.blog-post-1 {
                 background-color: #fcf9ec;
 
-                .post-category {
+                .post-tag {
                     color: theme-color(warning);
                 }
 
@@ -319,7 +319,7 @@
             &.blog-post-2 {
                 background-color: #f4fbf8;
 
-                .post-category {
+                .post-tag {
                     color: theme-color(success);
                 }
 

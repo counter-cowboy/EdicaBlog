@@ -29,7 +29,7 @@ alert:
   label: Alert
 animals:
   icons:
-    - cat
+    - tag
     - crow
     - dog
     - dove
@@ -1030,7 +1030,7 @@ halloween:
   icons:
     - book-dead
     - broom
-    - cat
+    - tag
     - cloud-moon
     - crow
     - ghost
