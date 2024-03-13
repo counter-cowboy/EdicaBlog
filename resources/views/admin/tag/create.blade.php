@@ -21,7 +21,6 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                >
                 <div class="row">
                     <div class="col-12">
                         <form action="{{route('admin.tag.store')}}" method="post" class="w-25">
@@ -40,5 +39,5 @@
                 </div>
             </div>
         </section>
-        <!
+    </div>
 @endsection
