@@ -35,7 +35,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th>Action</th>
+                                        <th colspan="2" style="text-align: center">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -48,6 +48,18 @@
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
                                         </td>
+                                        <td>
+                                            <form action="{{ route('admin.category.delete', $category->id) }}"
+                                                  method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="border-0 bg-transparent">
+                                                    <i role="button" onclick="return confirm('Sure?')"
+                                                       class="fa fa-trash text-danger"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td></td>
                                     </tr>
 
                                     </tbody>

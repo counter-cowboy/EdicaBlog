@@ -57,7 +57,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th colspan="2">Action</th>
+                                        <th colspan="3" class="text-center">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -65,14 +65,27 @@
                                         <tr>
                                             <td>{{ $cat->id }}</td>
                                             <td>{{$cat->title}}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 <a href="{{ route('admin.category.show', $cat->id) }}">
                                                     <i class="fa fa-eye"></i></a>
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                                 <a href="{{ route('admin.category.edit', $cat->id) }}"
                                                    class="text-success">
                                                     <i class="fa fa-pencil-alt"></i></a>
+                                            </td>
+
+                                            <td class="text-center">
+
+                                                <form action="{{ route('admin.category.delete', $cat->id) }}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="border-0 bg-transparent">
+                                                        <i role="button" onclick="return confirm('Sure?')"
+                                                           class="fa fa-trash text-danger"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
