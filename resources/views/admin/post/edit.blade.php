@@ -40,7 +40,7 @@
                             {{--  Title--}}
                             <div class="form-group w-25">
                                 <input type="text" name="title" class="form-control"
-                                       value="{{$post->title}}" placeholder="Enter post name">
+                                       value="{{old('title', $post->title)}}" placeholder="Enter post name">
                                 @error('title')
                                 <div class="text-danger">
                                     Field must be fullfilled
@@ -50,7 +50,7 @@
                             {{--Content--}}
                             <div class="form-group">
                                 <textarea id="summernote" name="content">
-                                    {{ $post->content }}
+                                    {{old('content', $post->content)}}
                                 </textarea>
                                 @error('content')
                                 <div class="text-danger">
