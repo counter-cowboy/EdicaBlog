@@ -65,7 +65,7 @@
                                             <td>{!! $post->content !!}</td>
                                             <td><img src="{{$post->preview_image}}">
                                             </td>
-                                            <td>{{$post->main_image}}</td>
+                                            <td><img src="{{$post->main_image}}"></td>
                                             <td class="text-center">
                                                 <a href="{{ route('admin.post.show', $post->id) }}">
                                                     <i class="fa fa-eye"></i></a>

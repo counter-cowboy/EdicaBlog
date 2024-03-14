@@ -48,7 +48,7 @@
                             </div>
                             {{--Preview image--}}
                             <div class="form-group w-50">
-                                <label for="exampleInputFile">Add preview</label>
+                                <label>Add preview</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="preview_image"
@@ -62,7 +62,7 @@
                             </div>
                             {{--Main image--}}
                             <div class="form-group w-50">
-                                <label for="exampleInputFile">Add image</label>
+                                <label>Add image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="main_image"
@@ -92,7 +92,8 @@
                                 <select class="select2 form-control" multiple="multiple" name="tag_ids[]"
                                         data-placeholder="Select a tag" style="width: 100%;">
                                     @foreach($tags as $tag)
-                                        <option value="{{$tag->id}}">{{$tag->title}}</option>
+                                        <option {{is_array(old('tag_ids'))&&in_array($tag->id,old('tag_ids'))?' selected':''}} value="{{$tag->id}}">
+                                            {{$tag->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
