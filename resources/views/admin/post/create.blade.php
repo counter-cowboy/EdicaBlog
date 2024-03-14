@@ -36,7 +36,7 @@
                                 @enderror
                             </div>
                             {{--Content--}}
-                            <div class="form-group ">
+                            <div class="form-group">
                                 <textarea id="summernote" name="content">
                                     {{ old('content') }}
                                 </textarea>
@@ -53,6 +53,11 @@
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="preview_image"
                                                id="exampleInputFile">
+                                        @error('preview_image')
+                                        <div class="text-danger">
+                                            Field must be fullfilled
+                                        </div>
+                                        @enderror
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
@@ -67,6 +72,11 @@
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="main_image"
                                                id="exampleInputFile">
+                                        @error('main_image')
+                                        <div class="text-danger">
+                                            Field must be fullfilled
+                                        </div>
+                                        @enderror
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
