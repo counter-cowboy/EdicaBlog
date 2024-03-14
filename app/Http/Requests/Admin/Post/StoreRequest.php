@@ -22,13 +22,34 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "title" => 'string',
+            "title" => 'required|string',
             'content' => 'required|string',
-            'preview_image' => 'nullable|file', // required|
-            'main_image' => 'nullable|file', // required|
+            'preview_image' => 'required|file',
+            'main_image' => 'required|file',
             'category_id' => 'required|integer|exists:categories,id',
-            'tag_ids' => 'nullable|array',
+            'tag_ids' => 'required|array',
             'tag_ids.*' => 'nullable|integer|exists:tags,id'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            "title.required" => 'Field must be fulfilled',
+            "title.string" => 'Must be string type',
+            'content.required' => 'Field must be fulfilled',
+            'content.string' => 'Must be string type',
+            'preview_image.required' => 'File must be chosen',
+            'preview_image.file' => 'It must be image file',
+            'main_image.required' => 'File must be chosen',
+            'main_image.file' => 'It must be image file',
+            'category_id.required' => 'Field must be fulfilled',
+            'category_id.integer' => 'Must be number type',
+            'category_id.exists' => 'It must be in Database',
+            'tag_ids.array' => 'It must be data array'
+        ];
+    }
+
+
+    /*END*/
 }

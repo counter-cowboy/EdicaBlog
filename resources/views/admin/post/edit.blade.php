@@ -42,9 +42,7 @@
                                 <input type="text" name="title" class="form-control"
                                        value="{{old('title', $post->title)}}" placeholder="Enter post name">
                                 @error('title')
-                                <div class="text-danger">
-                                    Field must be fullfilled
-                                </div>
+                                <div class="text-danger">{{$message}}   </div>
                                 @enderror
                             </div>
                             {{--Content--}}
@@ -53,9 +51,7 @@
                                     {{old('content', $post->content)}}
                                 </textarea>
                                 @error('content')
-                                <div class="text-danger">
-                                    Field must be fulfilled
-                                </div>
+                                <div class="text-danger">{{$message}}  </div>
                                 @enderror
                             </div>
                             {{--Preview image--}}
@@ -70,9 +66,7 @@
                                         <input type="file" class="custom-file-input" name="preview_image"
                                                id="exampleInputFile">
                                         @error('preview_image')
-                                        <div class="text-danger">
-                                            Field must be fulfilled
-                                        </div>
+                                        <div class="text-danger">{{$message}}  </div>
                                         @enderror
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
@@ -92,9 +86,7 @@
                                         <input type="file" class="custom-file-input" name="main_image"
                                                id="exampleInputFile">
                                         @error('main_image')
-                                        <div class="text-danger">
-                                            Field must be fulfilled
-                                        </div>
+                                        <div class="text-danger">{{$message}}  </div>
                                         @enderror
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
@@ -114,6 +106,9 @@
                                         </option>
                                     @endforeach
                                 </select>
+                                @error('category_id')
+                                <div class="text-danger">{{$message}}  </div>
+                                @enderror
                             </div>
                             {{-- Select tag multiple--}}
                             <div class="form-group  w-25">
@@ -125,6 +120,9 @@
                                             {{$tag->title}}</option>
                                     @endforeach
                                 </select>
+                                @error('tag_ids')
+                                <div class="text-danger">{{$message}}  </div>
+                                @enderror
                             </div>
                             {{--  Submit button--}}
                             <div class="form-group">

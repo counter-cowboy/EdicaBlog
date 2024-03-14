@@ -30,9 +30,7 @@
                                 <input type="text" name="title" class="form-control"
                                        value="{{old('title')}}" placeholder="Enter post name">
                                 @error('title')
-                                <div class="text-danger">
-                                    Field must be fullfilled
-                                </div>
+                                <div class="text-danger"> {{ $message }}  </div>
                                 @enderror
                             </div>
                             {{--Content--}}
@@ -40,10 +38,8 @@
                                 <textarea id="summernote" name="content">
                                     {{ old('content') }}
                                 </textarea>
-                                @error('title')
-                                <div class="text-danger">
-                                    Field must be fulfilled
-                                </div>
+                                @error('content')
+                                <div class="text-danger"> {{ $message }} </div>
                                 @enderror
                             </div>
                             {{--Preview image--}}
@@ -53,17 +49,16 @@
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="preview_image"
                                                id="exampleInputFile">
-                                        @error('preview_image')
-                                        <div class="text-danger">
-                                            Field must be fullfilled
-                                        </div>
-                                        @enderror
+
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Upload</span>
                                     </div>
                                 </div>
+                                @error('preview_image')
+                                <div class="text-danger">{{ $message }} </div>
+                                @enderror
                             </div>
                             {{--Main image--}}
                             <div class="form-group w-50">
@@ -72,22 +67,22 @@
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="main_image"
                                                id="exampleInputFile">
-                                        @error('main_image')
-                                        <div class="text-danger">
-                                            Field must be fullfilled
-                                        </div>
-                                        @enderror
+
                                         <label class="custom-file-label">Choose file</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Upload</span>
                                     </div>
                                 </div>
+                                @error('main_image')
+                                <div class="text-danger">{{ $message }}                  </div>
+                                @enderror
                             </div>
                             {{-- Select category--}}
                             <div class="form-group w-25">
                                 <label>Select category</label>
                                 <select name="category_id" class="form-control">
+                                    <option selected value="">--=select=--</option>
                                     @foreach($category as $cat)
                                         <option value="{{$cat->id}}"
                                                 {{$cat->id == old('category_id')? ' selected' : ''}}>
@@ -95,18 +90,26 @@
                                         </option>
                                     @endforeach
                                 </select>
+                                @error('category_id')
+                                <div class="text-danger">{{ $message }}  </div>
+                                @enderror
                             </div>
                             {{-- Select tag multiple--}}
                             <div class="form-group  w-25">
                                 <label>Select tags</label>
                                 <select class="select2 form-control" multiple="multiple" name="tag_ids[]"
                                         data-placeholder="Select a tag" style="width: 100%;">
+
                                     @foreach($tags as $tag)
                                         <option {{is_array(old('tag_ids'))&&in_array($tag->id,old('tag_ids'))?' selected':''}} value="{{$tag->id}}">
                                             {{$tag->title}}</option>
                                     @endforeach
                                 </select>
+                                @error('tag_ids')
+                                <div class="text-danger">{{ $message }}    </div>
+                                @enderror
                             </div>
+
                             {{--  Submit button--}}
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary col-1" value="Add">
