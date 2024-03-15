@@ -36,15 +36,15 @@
                                     <tbody>
                                     <tr>
                                         <td>{{ $user->id }}</td>
-                                        <td>{{$user->title}}</td>
+                                        <td>{{$user->name}}</td>
                                         <td>
-                                            <a href="{{ route('admin.category.edit', $user->id) }}"
+                                            <a href="{{ route('admin.user.edit', $user->id) }}"
                                                class="text-success">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.category.delete', $user->id) }}"
+                                            <form action="{{ route('admin.user.delete', $user->id) }}"
                                                   method="post">
                                                 @csrf
                                                 @method('delete')

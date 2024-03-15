@@ -7,6 +7,7 @@
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1 class="m-0">Editing user</h1>
+                        {{--Delete user button--}}
                         <form action="{{ route('admin.user.delete', $user->id) }}"
                               method="post">
                             @csrf
@@ -34,13 +35,21 @@
                         <form action="{{ route('admin.user.update', $user->id) }}" method="post" class="w-25">
                             @csrf
                             @method('patch')
+                            {{--Name--}}
                             <div class="form-group">
-                                <input type="text" name="title" class="form-control"
-                                       value="{{$user->name}}" placeholder="Enter tag.name">
+                                <input type="text" name="name" class="form-control"
+                                       value="{{$user->name}}" placeholder="Enter username">
                                 @error('name')
-                                <div class="text-danger">
-                                    Field must be fulfilled
-                                </div>
+                                <div class="text-danger">{{$message}} </div>
+                                @enderror
+                            </div>
+
+                            {{--EMAIL User email--}}
+                            <div class="form-group">
+                                <input type="text" name="email" class="form-control" placeholder="Enter email"
+                                       value="{{$user->email}}">
+                                @error('email')
+                                <div class="text-danger">{{$message}} </div>
                                 @enderror
                             </div>
                             <input type="submit" class="btn btn-primary col-4" value="Update">

@@ -22,7 +22,21 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => 'string'
+            'name' => 'required|string',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string',
         ];
+    }
+
+    public function messages()
+    {
+        return ['name.required' => 'Field must be filled',
+            'name.string' => 'Data must be string type',
+            'email.required' => 'Field must be filled',
+            'email.string' => 'Data must be string type',
+            'email.email' => 'It must be like mail@mail.com',
+            'email.unique' => 'User with this email already exists',
+            'password.required' => 'Field must be filled',
+            'password.string' => 'Data must be string type'];
     }
 }

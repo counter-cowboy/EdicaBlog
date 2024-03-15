@@ -24,12 +24,27 @@
                     <div class="col-12">
                         <form action="{{route('admin.user.store')}}" method="post" class="w-25">
                             @csrf
+                            {{-- User name--}}
                             <div class="form-group">
                                 <input type="text" name="name" class="form-control" placeholder="Enter user name">
                                 @error('name')
                                 <div class="text-danger">
-                                    Field must be fullfilled
+                                    Field must be fulfilled
                                 </div>
+                                @enderror
+                            </div>
+                            {{--EMAIL User email--}}
+                            <div class="form-group">
+                                <input type="text" name="email" class="form-control" placeholder="Enter email">
+                                @error('email')
+                                <div class="text-danger">{{$message}}  </div>
+                                @enderror
+                            </div>
+                            {{--Password--}}
+                            <div class="form-group">
+                                <input type="text" name="password" class="form-control" placeholder="Enter password">
+                                @error('password')
+                                <div class="text-danger">{{$message}} </div>
                                 @enderror
                             </div>
                             <input type="submit" class="btn btn-primary col-4" value="Add">
