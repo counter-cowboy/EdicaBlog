@@ -6,10 +6,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => ''], function () {
-    Route::get('/', MainIndex::class)->name('index');
+    Route::get('/', MainIndex::class)->name('index.site');
 });
 
-Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']],
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin',
+    'middleware' => ['auth', 'admin', 'verified']],
     function () {
         Route::group(['namespace' => 'Main'], function () {
             Route::get('/', IndexController::class)->name('index');
@@ -58,8 +59,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
 });
 
 
-
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'index'])
     ->name('home');
