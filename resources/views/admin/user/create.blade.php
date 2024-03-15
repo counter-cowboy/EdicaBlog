@@ -41,12 +41,13 @@
                                 @enderror
                             </div>
                             {{--Password--}}
-                            <div class="form-group">
-                                <input type="text" name="password" class="form-control" placeholder="Enter password">
-                                @error('password')
-                                <div class="text-danger">{{$message}} </div>
-                                @enderror
-                            </div>
+                            {{--   <div class="form-group">
+                                   <input type="text" name="password" class="form-control" placeholder="Enter password">
+                                   @error('password')
+                                   <div class="text-danger">{{$message}} </div>
+                                   @enderror
+                               </div>
+                               --}}
                             {{-- Select user role--}}
                             <div class="form-group w-25">
                                 <label>Select role</label>

@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
         return [
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
-            'password' => 'required|string',
+//            'password' => 'required|string',
             'role' => 'required|integer'
         ];
     }
@@ -37,7 +37,10 @@ class StoreRequest extends FormRequest
             'email.string' => 'Data must be string type',
             'email.email' => 'It must be like mail@mail.com',
             'email.unique' => 'User with this email already exists',
-            'password.required' => 'Field must be filled',
-            'password.string' => 'Data must be string type'];
+            /*
+             * 'password.required' => 'Field must be filled',
+            'password.string' => 'Data must be string type'
+            */
+        ];
     }
 }
