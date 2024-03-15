@@ -78,7 +78,7 @@
                                 <div class="text-danger">{{ $message }}                  </div>
                                 @enderror
                             </div>
-                            {{-- Select category--}}
+                            {{-- Select category ID--}}
                             <div class="form-group w-25">
                                 <label>Select category</label>
                                 <select name="category_id" class="form-control">
