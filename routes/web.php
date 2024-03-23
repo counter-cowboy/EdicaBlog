@@ -13,7 +13,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin',
     'middleware' => ['auth', 'admin', 'verified']],
     function () {
         Route::group(['namespace' => 'Main'], function () {
-            Route::get('/', IndexController::class)->name('index');
+            Route::get('/', IndexController::class)->name('admin.main.index');
         });
 
         Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
