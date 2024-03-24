@@ -13,12 +13,18 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
     Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
         Route::get('/', IndexController::class)->name('personal.main.index');
     });
+
     Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
         Route::get('/', IndexController::class)->name('personal.liked.index');
-        Route::delete('/{post}', DeleteController::class)->name('personal.liked.delete');
+
+
     });
+
     Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function () {
         Route::get('/', IndexController::class)->name('personal.comment.index');
+        Route::get('/{comment}/edit', EditController::class)->name('personal.comment.edit');
+        Route::patch('/{comment}', UpdateController::class)->name('personal.comment.update');
+        Route::delete('/{comment}', DeleteController::class)->name('personal.comment.delete');
     });
 });
 
