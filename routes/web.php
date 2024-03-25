@@ -5,9 +5,9 @@ use App\Http\Controllers\Main\IndexController as MainIndex;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['namespace' => ''], function () {
-    Route::get('/', MainIndex::class)->name('index.site');
-});
+
+Route::get('/', MainIndex::class)->name('main.index');
+
 
 Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
     Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
