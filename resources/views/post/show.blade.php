@@ -35,39 +35,53 @@
                             @endforeach
                         </div>
                     </section>
-                    <section class="comment-section">
-                        <h2 class="section-title mb-5" data-aos="fade-up">Leave a Reply</h2>
-                        <form action="/" method="post">
-                            <div class="row">
-                                <div class="form-group col-12" data-aos="fade-up">
-                                    <label for="comment" class="sr-only">Comment</label>
-                                    <textarea name="comment" id="comment" class="form-control" placeholder="Comment"
-                                              rows="10">Comment</textarea>
-                                </div>
+                    {{--                    Comments--}}
+
+                    <section class="comment-section mb-5">
+                        <h2 class="section-title mb-5" data-aos="fade-up">
+                            Comments: ({{ $post->comments->count() }})
+                        </h2>
+                        @foreach($post->comments as $comment)
+
+                            <div class="comment-text mb-4">
+                                <span class="username">
+                                  <div>
+                                      {{$comment->DateCarbon->diffForHumans()}}
+                                      • {{$comment->DateCarbon->translatedFormat('d F Y')}} • {{$comment->DateCarbon->format('H:i')}} •
+
+                                      By {{ $comment->user->name }}
+                                  </div>
+                                  <span class="text-muted float-right">Id: {{ $comment-> id}}</span>
+                                </span>
+                                {{ $comment->message }}
                             </div>
-                            <div class="row">
-                                <div class="form-group col-md-4" data-aos="fade-right">
-                                    <label for="name" class="sr-only">Name</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name*">
-                                </div>
-                                <div class="form-group col-md-4" data-aos="fade-up">
-                                    <label for="email" class="sr-only">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control"
-                                           placeholder="Email*" required>
-                                </div>
-                                <div class="form-group col-md-4" data-aos="fade-left">
-                                    <label for="website" class="sr-only">Website</label>
-                                    <input type="url" name="website" id="website" class="form-control"
-                                           placeholder="Website*">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12" data-aos="fade-up">
-                                    <input type="submit" value="Send Message" class="btn btn-warning">
-                                </div>
-                            </div>
-                        </form>
+                        @endforeach
                     </section>
+
+                    {{--                    Comments end--}}
+                    {{--                    Comment form--}}
+                    @auth()
+                        <section class="comment-section">
+                            <h2 class="section-title mb-5" data-aos="fade-up">Send comment</h2>
+                            <form action="{{ route('post.comment.store', $post->id) }}" method="post">
+                                @csrf
+                                <div class="row">
+                                    <div class="form-group col-12" data-aos="fade-up">
+                                        <label for="comment" class="sr-only">Comment</label>
+                                        <textarea name="message" id="comment" class="form-control"
+                                                  placeholder="Write comment" rows="10">
+                                    </textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12" data-aos="fade-up">
+                                        <input type="submit" value="Send Message" class="btn btn-warning">
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    @endauth
+                    {{--                    Comment form end--}}
                 </div>
             </div>
         </div>
