@@ -5,8 +5,8 @@
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">{{ $post->title }}</h1>
             <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">
-                • {{$date->translatedFormat('d F Y')}}• {{$date->format('H:i')}}• {{ $post->comments()->count() }}
-                comments</p>
+                • {{$date->translatedFormat('d F Y')}} • {{$date->format('H:i')}} •
+                {{ $post->comments()->count() }} comments</p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
                 <img src="{{ asset('storage/'. $post->preview_image )}}" alt="featured image" class="w-100">
             </section>
@@ -23,24 +23,16 @@
                     <section class="related-posts">
                         <h2 class="section-title mb-4" data-aos="fade-up">Related Posts</h2>
                         <div class="row">
-                            <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-                                <img src="assets/images/blog_post_related_1.png" alt="related post"
-                                     class="post-thumbnail">
-                                <p class="post-category">Blog post</p>
-                                <h5 class="post-title">Front becomes an official Instagram</h5>
-                            </div>
-                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                                <img src="assets/images/blog_post_related_2.png" alt="related post"
-                                     class="post-thumbnail">
-                                <p class="post-category">Blog post</p>
-                                <h5 class="post-title">Front becomes an official Instagram</h5>
-                            </div>
-                            <div class="col-md-4" data-aos="fade-left" data-aos-delay="100">
-                                <img src="assets/images/blog_post_related_3.png" alt="related post"
-                                     class="post-thumbnail">
-                                <p class="post-category">Blog post</p>
-                                <h5 class="post-title">Front becomes an official Instagram</h5>
-                            </div>
+                            @foreach($relatedPosts as $rpost)
+                                <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
+                                    <img src="{{ asset('storage/'. $rpost->preview_image) }}" alt="related post"
+                                         class="post-thumbnail">
+                                    <p class="post-category">Category: {{ $rpost->category->title }}</p>
+                                    <a href="{{route('post.show', $rpost->id)}}">
+                                        <h5 class="post-title">{{ $rpost->title }}</h5>
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
                     </section>
                     <section class="comment-section">
