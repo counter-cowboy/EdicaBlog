@@ -1,12 +1,20 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Main\IndexController as MainIndex;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
+    Route::get('/', IndexController::class)->name('main.index');
+});
 
-Route::get('/', MainIndex::class)->name('main.index');
+Route::group(['namespace' => 'App\Http\Controllers\Category', 'prefix' => 'categories'], function () {
+    Route::get('/', IndexController::class)->name('category.index');
+
+    Route::group(['namespace' => 'Post', 'prefix' => '{category}/posts'], function () {
+        Route::get('/', IndexController::class)->name('category.post.index');
+    });
+});
 
 Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], function () {
     Route::get('/', IndexController::class)->name('post.index');
@@ -14,6 +22,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], 
 
     Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function () {
         Route::post('/', StoreController::class)->name('post.comment.store');
+    });
+
+    Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], function () {
+        Route::post('/', StoreController::class)->name('post.like.store');
     });
 });
 
@@ -25,6 +37,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
 
     Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function () {
         Route::get('/', IndexController::class)->name('personal.liked.index');
+        Route::delete('/{post}', DeleteController::class)->name('personal.liked.delete');
 
 
     });
@@ -90,7 +103,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin',
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [HomeController::class, 'home'])
+Route::get('/home', HomeController::class)
     ->name('home');
 
 

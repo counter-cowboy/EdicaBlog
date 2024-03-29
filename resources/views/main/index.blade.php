@@ -11,7 +11,8 @@
                             <div class="blog-post-thumbnail-wrapper">
                                 <img src="{{ 'storage/'. $post->preview_image }}" alt="blog post">
                             </div>
-                            <p class="blog-post-tag">Category: {{ $post->category->title }}</p>
+                            <a href="{{ route('category.post.index', $category->id) }}"><p class="blog-post-tag">
+                                    Category: {{ $post->category->title }}</p></a>
                             <a href="#" class="blog-post-permalink">
                                 <h6 class="blog-post-title">{{ $post->title }}</h6>
                             </a>

@@ -16,7 +16,6 @@ class IndexController extends Controller
             ->get()
             ->take(4);
 
-
         return view('post.index', compact('posts', 'randomPosts', 'likedPosts'));
     }
 }
