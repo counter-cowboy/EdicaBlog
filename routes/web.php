@@ -30,7 +30,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], 
 });
 
 
-Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Personal',
+    'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
     Route::group(['namespace' => 'Main', 'prefix' => 'main'], function () {
         Route::get('/', IndexController::class)->name('personal.main.index');
     });
